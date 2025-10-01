@@ -56,9 +56,10 @@ class UserRepository extends AbstractRepository
 
         $password =  $data['password'];
 
-        $sql = "INSERT INTO mns_user (lastname, firstname, email, password, isadmin) VALUES (:lastname, :firstname, :email, :password, :isadmin)";
+        $sql = "INSERT INTO mns_user (lastname, firstname, email, password, isadmin) VALUES (?, ?, ?, ?, ?)";
         $query = $this->getConnection()->prepare($sql);
-        $query->execute(['lastname' => $lastname], ['firstname' => $firstname],['email' => $email],['password' =>$password],['isadmin' => $isAdmin]);
+        //$query->execute(['lastname' => $lastname], ['firstname' => $firstname],['email' => $email],['password' =>$password],['isadmin' => $isAdmin]);
+        $query->execute([$lastname, $firstname,$email,$password,$isAdmin]);
         return $this->getConnection()->lastInsertId();
     }
 }
