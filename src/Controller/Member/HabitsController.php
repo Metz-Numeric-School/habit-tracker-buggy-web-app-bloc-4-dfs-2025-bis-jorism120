@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Member;
 
+use App\Guard\UserGuard;
 use App\Repository\HabitRepository;
 use App\Repository\HabitLogRepository;
 use Mns\Buggy\Core\AbstractController;
@@ -21,6 +22,7 @@ class HabitsController extends AbstractController
      */
     public function index()
     {
+        UserGuard::check();
 
         $userId = $_SESSION['user']['id'];
         $habits = $this->habitRepository->findByUser($userId);
@@ -35,7 +37,6 @@ class HabitsController extends AbstractController
      */
     public function new()
     {
-
         $errors = [];
 
         if (!empty($_POST['habit'])) {

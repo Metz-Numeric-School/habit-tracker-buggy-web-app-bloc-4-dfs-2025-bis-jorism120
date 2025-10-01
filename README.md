@@ -1,6 +1,6 @@
 # My Habits Tracker (A Buggy Web Application)
 
-## Identifiants de connexions: 
+## Identifiants de connexion: 
 
 ### AaPanel 
 
@@ -26,7 +26,7 @@ Identifiant:
 Mot de passe:
 - 964f794ca374fcb7
 
-### Mot de passe de la base de données dans le fichier .env à modifier :
+### Mot de passe de la base de données dans le fichier .env à modifier en cas de nouveau deploiement :
 - 964f794ca374fcb7
 
 

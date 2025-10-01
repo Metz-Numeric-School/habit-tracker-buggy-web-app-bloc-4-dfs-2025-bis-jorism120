@@ -103,6 +103,10 @@ Se rendre dans la section "Database" et récupérer "rootpassword"puis accéder 
 - Après la création, se rendre dans "importer" et importer "database.sql" présent dans le projet
 - Une fois la base de donnée correctement créée, il est possible d'ajouter des données de tests en injectant dans la console SQL, le contenu du fichier "demo_data.sqm".
 
+## Erreurs PHP 
+
+Lors du déploiement en production, il est important de déactiver les erreurs PHP.
+
 
 
 
