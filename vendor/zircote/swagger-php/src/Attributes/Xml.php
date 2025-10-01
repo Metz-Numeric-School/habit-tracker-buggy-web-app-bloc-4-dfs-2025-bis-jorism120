@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
-class Xml extends \OpenApi\Annotations\Xml
+class Xml extends OA\Xml
 {
     /**
      * @param array<string,mixed>|null $x
@@ -32,7 +33,7 @@ class Xml extends \OpenApi\Annotations\Xml
                 'attribute' => $attribute ?? Generator::UNDEFINED,
                 'wrapped' => $wrapped ?? Generator::UNDEFINED,
                 'x' => $x ?? Generator::UNDEFINED,
-                'value' => $this->combine($attachables),
+                'attachables' => $attachables ?? Generator::UNDEFINED,
             ]);
     }
 }

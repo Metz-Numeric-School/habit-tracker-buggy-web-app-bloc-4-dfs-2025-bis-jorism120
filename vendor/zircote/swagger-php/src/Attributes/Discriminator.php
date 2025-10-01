@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
-class Discriminator extends \OpenApi\Annotations\Discriminator
+class Discriminator extends OA\Discriminator
 {
     /**
      * @param string[]|null            $mapping
@@ -27,7 +28,7 @@ class Discriminator extends \OpenApi\Annotations\Discriminator
             'propertyName' => $propertyName ?? Generator::UNDEFINED,
             'mapping' => $mapping ?? Generator::UNDEFINED,
             'x' => $x ?? Generator::UNDEFINED,
-            'value' => $this->combine($attachables),
+            'attachables' => $attachables ?? Generator::UNDEFINED,
         ]);
     }
 }

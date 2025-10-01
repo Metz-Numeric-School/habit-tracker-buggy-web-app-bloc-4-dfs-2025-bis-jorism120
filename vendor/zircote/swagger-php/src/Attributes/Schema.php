@@ -6,24 +6,24 @@
 
 namespace OpenApi\Attributes;
 
-use OpenApi\Annotations\Examples;
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD | \Attribute::TARGET_PROPERTY | \Attribute::IS_REPEATABLE)]
-class Schema extends \OpenApi\Annotations\Schema
+class Schema extends OA\Schema
 {
     /**
-     * @param string|non-empty-array<string>|null                           $type
      * @param string|class-string|object|null                               $ref
      * @param string[]                                                      $required
      * @param Property[]                                                    $properties
+     * @param string|non-empty-array<string>|null                           $type
      * @param int|float                                                     $maximum
      * @param int|float                                                     $minimum
      * @param array<string|int|float|bool|\UnitEnum|null>|class-string|null $enum
      * @param array<Examples>                                               $examples
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $allOf
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $anyOf
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $oneOf
+     * @param array<Schema|OA\Schema>                                       $allOf
+     * @param array<Schema|OA\Schema>                                       $anyOf
+     * @param array<Schema|OA\Schema>                                       $oneOf
      * @param array<string,mixed>|null                                      $x
      * @param Attachable[]|null                                             $attachables
      */
@@ -108,7 +108,7 @@ class Schema extends \OpenApi\Annotations\Schema
             'const' => $const,
             'x' => $x ?? Generator::UNDEFINED,
             'attachables' => $attachables ?? Generator::UNDEFINED,
-            'value' => $this->combine($items, $discriminator, $externalDocs, $examples, $attachables),
+            'value' => $this->combine($items, $discriminator, $externalDocs, $examples),
         ]);
     }
 }

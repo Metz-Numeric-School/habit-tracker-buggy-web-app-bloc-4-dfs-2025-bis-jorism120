@@ -14,6 +14,7 @@ class HabitController extends AbstractController
         $this->habitRepository = new HabitRepository();
     }
 
+
     public function index()
     {
         return $this->json([

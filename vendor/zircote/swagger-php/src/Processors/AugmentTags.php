@@ -13,9 +13,27 @@ use OpenApi\Generator;
 /**
  * Ensures that all tags used on operations also exist in the global <code>tags</code> list.
  */
-class AugmentTags implements ProcessorInterface
+class AugmentTags
 {
-    public function __invoke(Analysis $analysis)
+    /** @var array<string> */
+    protected array $whitelist = [];
+
+    public function __construct(array $whitelist = [])
+    {
+        $this->whitelist = $whitelist;
+    }
+
+    /**
+     * Whitelist tags to keep even if not used. <code>*</code> may be used to keep all unused.
+     */
+    public function setWhitelist(array $whitelist): AugmentTags
+    {
+        $this->whitelist = $whitelist;
+
+        return $this;
+    }
+
+    public function __invoke(Analysis $analysis): void
     {
         /** @var OA\Operation[] $operations */
         $operations = $analysis->getAnnotationsOfType(OA\Operation::class);
@@ -39,6 +57,7 @@ class AugmentTags implements ProcessorInterface
             $analysis->openapi->tags = array_values($declaredTags);
         }
 
+        // Add a tag for each tag that is used in operations but not declared in the global tags
         if ($usedTagNames) {
             $declatedTagNames = array_keys($declaredTags);
             foreach ($usedTagNames as $tagName) {
@@ -48,8 +67,18 @@ class AugmentTags implements ProcessorInterface
             }
         }
 
+        $this->removeUnusedTags($usedTagNames, $declaredTags, $analysis);
+    }
+
+    private function removeUnusedTags(array $usedTagNames, array $declaredTags, Analysis $analysis): void
+    {
+        if (in_array('*', $this->whitelist)) {
+            return;
+        }
+
+        $tagsToKeep = array_merge($usedTagNames, $this->whitelist);
         foreach ($declaredTags as $tag) {
-            if (!in_array($tag->name, $usedTagNames)) {
+            if (!in_array($tag->name, $tagsToKeep)) {
                 if (false !== $index = array_search($tag, $analysis->openapi->tags, true)) {
                     $analysis->annotations->detach($tag);
                     unset($analysis->openapi->tags[$index]);

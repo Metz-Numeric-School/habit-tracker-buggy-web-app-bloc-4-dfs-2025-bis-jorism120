@@ -7,21 +7,22 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_METHOD | \Attribute::TARGET_PROPERTY | \Attribute::TARGET_PARAMETER | \Attribute::TARGET_CLASS_CONSTANT | \Attribute::IS_REPEATABLE)]
-class Property extends \OpenApi\Annotations\Property
+class Property extends OA\Property
 {
     /**
-     * @param string|non-empty-array<string>|null                           $type
      * @param string|class-string|object|null                               $ref
      * @param string[]                                                      $required
      * @param Property[]                                                    $properties
+     * @param string|non-empty-array<string>|null                           $type
      * @param int|float                                                     $maximum
      * @param int|float                                                     $minimum
      * @param array<string|int|float|bool|\UnitEnum|null>|class-string|null $enum
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $allOf
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $anyOf
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $oneOf
+     * @param array<Schema|OA\Schema>                                       $allOf
+     * @param array<Schema|OA\Schema>                                       $anyOf
+     * @param array<Schema|OA\Schema>                                       $oneOf
      * @param array<string,mixed>|null                                      $x
      * @param Attachable[]|null                                             $attachables
      */
@@ -107,7 +108,7 @@ class Property extends \OpenApi\Annotations\Property
             // annotation
             'x' => $x ?? Generator::UNDEFINED,
             'attachables' => $attachables ?? Generator::UNDEFINED,
-            'value' => $this->combine($items, $discriminator, $externalDocs, $attachables),
+            'value' => $this->combine($items, $discriminator, $externalDocs),
         ]);
     }
 }

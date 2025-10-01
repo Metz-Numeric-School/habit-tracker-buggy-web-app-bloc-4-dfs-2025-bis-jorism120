@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD | \Attribute::TARGET_PROPERTY | \Attribute::IS_REPEATABLE)]
-class Examples extends \OpenApi\Annotations\Examples
+class Examples extends OA\Examples
 {
     /**
      * @param string|class-string|object|null $ref
@@ -35,9 +36,7 @@ class Examples extends \OpenApi\Annotations\Examples
             'externalValue' => $externalValue ?? Generator::UNDEFINED,
             'ref' => $ref ?? Generator::UNDEFINED,
             'x' => $x ?? Generator::UNDEFINED,
+            'attachables' => $attachables ?? Generator::UNDEFINED,
         ]);
-        if ($attachables) {
-            $this->merge($attachables);
-        }
     }
 }

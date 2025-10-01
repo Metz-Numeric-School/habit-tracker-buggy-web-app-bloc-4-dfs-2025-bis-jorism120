@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
-class Tag extends \OpenApi\Annotations\Tag
+class Tag extends OA\Tag
 {
     /**
      * @param array<string,mixed>|null $x
@@ -27,7 +28,8 @@ class Tag extends \OpenApi\Annotations\Tag
                 'name' => $name ?? Generator::UNDEFINED,
                 'description' => $description ?? Generator::UNDEFINED,
                 'x' => $x ?? Generator::UNDEFINED,
-                'value' => $this->combine($externalDocs, $attachables),
+                'attachables' => $attachables ?? Generator::UNDEFINED,
+                'value' => $this->combine($externalDocs),
             ]);
     }
 }

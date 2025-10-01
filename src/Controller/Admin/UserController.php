@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
+use App\Guard\AdminGuard;
 use App\Repository\UserRepository;
 use Mns\Buggy\Core\AbstractController;
 
@@ -17,6 +18,7 @@ class UserController extends AbstractController
 
     public function index()
     {
+        AdminGuard::check();
         $users = $this->userRepository->findAll();
         return $this->render('admin/user/index.html.php', [
             'users' => $users,

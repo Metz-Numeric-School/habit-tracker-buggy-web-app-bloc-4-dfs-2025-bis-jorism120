@@ -25,6 +25,7 @@ class ComposerStaticInit32f26379e68bf8a13140046a3fb5d2cc
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'PhpParser\\' => 10,
             'PhpOption\\' => 10,
         ),
         'O' => 
@@ -73,6 +74,10 @@ class ComposerStaticInit32f26379e68bf8a13140046a3fb5d2cc
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
+        ),
+        'PhpParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
         'PhpOption\\' => 
         array (

@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
-class ExternalDocumentation extends \OpenApi\Annotations\ExternalDocumentation
+class ExternalDocumentation extends OA\ExternalDocumentation
 {
     /**
      * @param array<string,mixed>|null $x
@@ -26,7 +27,7 @@ class ExternalDocumentation extends \OpenApi\Annotations\ExternalDocumentation
                 'description' => $description ?? Generator::UNDEFINED,
                 'url' => $url ?? Generator::UNDEFINED,
                 'x' => $x ?? Generator::UNDEFINED,
-                'value' => $this->combine($attachables),
+                'attachables' => $attachables ?? Generator::UNDEFINED,
             ]);
     }
 }

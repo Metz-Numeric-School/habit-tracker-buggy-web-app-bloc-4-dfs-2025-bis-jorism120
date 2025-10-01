@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
-class Info extends \OpenApi\Annotations\Info
+class Info extends OA\Info
 {
     /**
      * @param array<string,mixed>|null $x
@@ -32,7 +33,8 @@ class Info extends \OpenApi\Annotations\Info
                 'title' => $title ?? Generator::UNDEFINED,
                 'termsOfService' => $termsOfService ?? Generator::UNDEFINED,
                 'x' => $x ?? Generator::UNDEFINED,
-                'value' => $this->combine($contact, $license, $attachables),
+                'attachables' => $attachables ?? Generator::UNDEFINED,
+                'value' => $this->combine($contact, $license),
             ]);
     }
 }

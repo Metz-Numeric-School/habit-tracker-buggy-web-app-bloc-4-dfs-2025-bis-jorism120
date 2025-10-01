@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
-class MediaType extends \OpenApi\Annotations\MediaType
+class MediaType extends OA\MediaType
 {
     /**
      * @param array<Examples>          $examples
@@ -32,7 +33,8 @@ class MediaType extends \OpenApi\Annotations\MediaType
                 'example' => $example,
                 'encoding' => $encoding ?? Generator::UNDEFINED,
                 'x' => $x ?? Generator::UNDEFINED,
-                'value' => $this->combine($schema, $examples, $attachables),
+                'attachables' => $attachables ?? Generator::UNDEFINED,
+                'value' => $this->combine($schema, $examples),
             ]);
     }
 }

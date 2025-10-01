@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
-class OpenApi extends \OpenApi\Annotations\OpenApi
+class OpenApi extends OA\OpenApi
 {
     /**
      * @param Server[]|null            $servers
@@ -37,7 +38,8 @@ class OpenApi extends \OpenApi\Annotations\OpenApi
                 'openapi' => $openapi,
                 'security' => $security ?? Generator::UNDEFINED,
                 'x' => $x ?? Generator::UNDEFINED,
-                'value' => $this->combine($info, $servers, $tags, $externalDocs, $paths, $components, $webhooks, $attachables),
+                'attachables' => $attachables ?? Generator::UNDEFINED,
+                'value' => $this->combine($info, $servers, $tags, $externalDocs, $paths, $components, $webhooks),
             ]);
     }
 }

@@ -4,11 +4,12 @@
 
 # swagger-php
 
-Generate interactive [OpenAPI](https://www.openapis.org) documentation for your RESTful API using
-[doctrine annotations](https://www.doctrine-project.org/projects/annotations.html) (optional as of version 4.8; if required the `doctrine/annotations` library must be installed in addition to swagger.php).
-or [PHP attributes](https://www.php.net/manual/en/language.attributes.overview.php).
+Generate interactive [OpenAPI](https://www.openapis.org) documentation for your RESTful API using [PHP attributes](https://www.php.net/manual/en/language.attributes.overview.php) (preferred) or
+[doctrine annotations](https://www.doctrine-project.org/projects/annotations.html) (requires additional `doctrine/annotations` library).
 
-For a full list of supported annotations, please have look at the [`OpenApi\Annotations` namespace](src/Annotations) or the [documentation website](https://zircote.github.io/swagger-php/guide/annotations.html).
+See the [documentation website](https://zircote.github.io/swagger-php/guide/attributes.html) for supported attributes and annotations.
+
+Annotations are deprecated and may be removed in a future release of swagger-php.
 
 ## Features
 
@@ -29,7 +30,7 @@ Programmatically, the method `Generator::setVersion()` can be used to change the
 
 ## Requirements
 
-`swagger-php` requires at least PHP 7.2 for annotations and PHP 8.1 for using attributes.
+`swagger-php` requires at least PHP 7.4 for annotations and PHP 8.1 for using attributes.
 
 ## Installation (with [Composer](https://getcomposer.org))
 
@@ -46,12 +47,7 @@ composer global require zircote/swagger-php
 ### doctrine/annotations
 As of version `4.8` the [doctrine annotations](https://www.doctrine-project.org/projects/annotations.html) library **is optional** and **no longer installed by default**.
 
-To use PHPDoc annotations this needs to be installed on top of `swagger-php`:
-```shell
-composer require doctrine/annotations
-```
-
-If your code uses PHPDoc annotations you will need to install this as well:
+If your code uses doctrine annotations you will need to install that library manually:
 
 ```shell
 composer require doctrine/annotations
@@ -75,7 +71,7 @@ Add annotations to your php files.
  */
 ```
 
-Visit the [Documentation website](https://zircote.github.io/swagger-php/) for the [Getting started guide](https://zircote.github.io/swagger-php/guide) or look at the [Examples directory](Examples/) for more examples.
+Visit the [Documentation website](https://zircote.github.io/swagger-php/) for the [Getting started guide](https://zircote.github.io/swagger-php/guide) or look at the [examples directory](docs/examples) for more examples.
 
 ### Usage from php
 
@@ -97,9 +93,6 @@ The `openapi` command line interface can be used to generate the documentation t
 ```shell
 ./vendor/bin/openapi --help
 ```
-Starting with version 4 the default analyser used on the command line is the new `ReflectionAnalyser`.
-
-Using the `--legacy` flag (`-l`) the legacy `TokenAnalyser` can still be used.
 
 ### Usage from the Deserializer
 

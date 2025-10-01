@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
-class License extends \OpenApi\Annotations\License
+class License extends OA\License
 {
     /**
      * @param array<string,mixed>|null $x
@@ -28,7 +29,7 @@ class License extends \OpenApi\Annotations\License
             'identifier' => $identifier ?? Generator::UNDEFINED,
             'url' => $url ?? Generator::UNDEFINED,
             'x' => $x ?? Generator::UNDEFINED,
-            'value' => $this->combine($attachables),
+            'attachables' => $attachables ?? Generator::UNDEFINED,
         ]);
     }
 }

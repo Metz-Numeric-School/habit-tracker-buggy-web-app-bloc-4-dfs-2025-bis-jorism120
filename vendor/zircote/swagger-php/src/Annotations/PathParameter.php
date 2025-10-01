@@ -9,7 +9,7 @@ namespace OpenApi\Annotations;
 use OpenApi\Annotations as OA;
 
 /**
- * A `@OA\Request` path parameter.
+ * A <code>@OA\Request</code> path parameter.
  *
  * @Annotation
  */
@@ -25,4 +25,9 @@ class PathParameter extends Parameter
      * @inheritdoc
      */
     public $required = true;
+
+    /**
+     * @inheritdoc
+     */
+    public static $_required = ['name'];
 }

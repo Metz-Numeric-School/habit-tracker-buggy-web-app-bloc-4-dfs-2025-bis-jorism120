@@ -23,7 +23,6 @@ class RegisterController extends AbstractController
      */
     public function index()
     {
-        AdminGuard::check();
 
         $errors = [];
         $newUser = [];

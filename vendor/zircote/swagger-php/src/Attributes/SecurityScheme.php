@@ -7,13 +7,14 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD | \Attribute::TARGET_PROPERTY | \Attribute::IS_REPEATABLE)]
-class SecurityScheme extends \OpenApi\Annotations\SecurityScheme
+class SecurityScheme extends OA\SecurityScheme
 {
     /**
-     * @param string|non-empty-array<string>|null $type
      * @param string|class-string|object|null     $ref
+     * @param string|non-empty-array<string>|null $type
      * @param Flow[]                              $flows
      * @param array<string,mixed>|null            $x
      * @param Attachable[]|null                   $attachables
@@ -44,7 +45,8 @@ class SecurityScheme extends \OpenApi\Annotations\SecurityScheme
                 'scheme' => $scheme ?? Generator::UNDEFINED,
                 'openIdConnectUrl' => $openIdConnectUrl ?? Generator::UNDEFINED,
                 'x' => $x ?? Generator::UNDEFINED,
-                'value' => $this->combine($flows, $attachables),
+                'attachables' => $attachables ?? Generator::UNDEFINED,
+                'value' => $this->combine($flows),
             ]);
     }
 }

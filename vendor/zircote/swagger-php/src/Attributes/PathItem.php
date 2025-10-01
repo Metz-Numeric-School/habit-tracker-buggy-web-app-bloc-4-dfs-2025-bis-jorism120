@@ -7,9 +7,10 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
-class PathItem extends \OpenApi\Annotations\PathItem
+class PathItem extends OA\PathItem
 {
     /**
      * @param string|class-string|object|null $ref
@@ -43,7 +44,8 @@ class PathItem extends \OpenApi\Annotations\PathItem
             'summary' => $summary ?? Generator::UNDEFINED,
             'description' => $description ?? Generator::UNDEFINED,
             'x' => $x ?? Generator::UNDEFINED,
-            'value' => $this->combine($get, $put, $post, $delete, $options, $head, $patch, $trace, $servers, $parameters, $attachables),
+            'attachables' => $attachables ?? Generator::UNDEFINED,
+            'value' => $this->combine($get, $put, $post, $delete, $options, $head, $patch, $trace, $servers, $parameters),
         ]);
     }
 }

@@ -7,21 +7,22 @@
 namespace OpenApi\Attributes;
 
 use OpenApi\Generator;
+use OpenApi\Annotations as OA;
 
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD)]
-class Items extends \OpenApi\Annotations\Items
+class Items extends OA\Items
 {
     /**
-     * @param string|non-empty-array<string>|null                           $type
      * @param string|class-string|object|null                               $ref
      * @param string[]                                                      $required
      * @param Property[]                                                    $properties
+     * @param string|non-empty-array<string>|null                           $type
      * @param int|float                                                     $maximum
      * @param int|float                                                     $minimum
      * @param array<string|int|float|bool|\UnitEnum|null>|class-string|null $enum
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $allOf
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $anyOf
-     * @param array<Schema|\OpenApi\Annotations\Schema>                     $oneOf
+     * @param array<Schema|OA\Schema>                                       $allOf
+     * @param array<Schema|OA\Schema>                                       $anyOf
+     * @param array<Schema|OA\Schema>                                       $oneOf
      * @param array<string,mixed>|null                                      $x
      * @param Attachable[]|null                                             $attachables
      */
@@ -105,7 +106,7 @@ class Items extends \OpenApi\Annotations\Items
             // annotation
             'x' => $x ?? Generator::UNDEFINED,
             'attachables' => $attachables ?? Generator::UNDEFINED,
-            'value' => $this->combine($items, $discriminator, $externalDocs, $attachables),
+            'value' => $this->combine($items, $discriminator, $externalDocs),
         ]);
     }
 }
