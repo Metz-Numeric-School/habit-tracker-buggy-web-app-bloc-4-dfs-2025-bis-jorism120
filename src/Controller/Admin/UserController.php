@@ -26,6 +26,8 @@ class UserController extends AbstractController
     public function new()
     {
         $errors = [];
+        $newUser = [];
+        $passwordTmp = "";
 
         if(!empty($_POST['user']))
         {
@@ -46,6 +48,12 @@ class UserController extends AbstractController
             
             if(count($errors) == 0)
             {
+                $newUser['lastname'] = htmlspecialchars($user['lastname']);
+                $newUser['firstname'] = htmlspecialchars($user['lastname']);
+                $newUser['email'] = htmlspecialchars($user['email']);
+                $passwordTmp = htmlspecialchars($user['password']);
+                $newUser['password'] = password_hash($passwordTmp, PASSWORD_DEFAULT);
+
                 $id = $this->userRepository->insert($user);
                 header('Location: /admin/user');
                 exit;
