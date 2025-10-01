@@ -50,6 +50,7 @@ class UserController extends AbstractController
             
             if(count($errors) == 0)
             {
+                $newUser['isadmin'] = htmlspecialchars($user['isadmin']);
                 $newUser['lastname'] = htmlspecialchars($user['lastname']);
                 $newUser['firstname'] = htmlspecialchars($user['lastname']);
                 $newUser['email'] = htmlspecialchars($user['email']);
