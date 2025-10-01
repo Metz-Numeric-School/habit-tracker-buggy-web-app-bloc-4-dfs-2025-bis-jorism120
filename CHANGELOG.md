@@ -1,6 +1,11 @@
 CHANGELOG :
 
 
+## [1.0.5] - 2025-10-01 11h33
+### Corrigé
+- Nottoyage des saisies utilisateur dans le formulaire d'inscription
+
+
 ## [1.0.4] - 2025-10-01 11h27
 
 ### Corrigé
@@ -10,5 +15,5 @@ CHANGELOG :
 ### Ajouté
 - Procédure de déploiement 
 ### Corrigé
-- Nottoyage des saisies utilisateurs dans le formulaire d'inscription 
+- Nottoyage des saisies utilisateurs dans le formulaire des utilisateurs
 - Hachage du mot de passe de l'utilisation lors de l'inscription
