@@ -3,6 +3,9 @@
 Suivi des modifications de l'application MyHabitTracker.
 
 
+## [1.0.10] - 2025-10-01 13h27
+### Corrigé 
+- Protection des données saisies lors de l'inscription et bug lors du traitement de l'inscription
 
 ## [1.0.9] - 2025-10-01 13h16
 ### Corrigé 
