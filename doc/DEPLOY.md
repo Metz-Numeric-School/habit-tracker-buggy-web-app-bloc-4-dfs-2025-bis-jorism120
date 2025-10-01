@@ -105,7 +105,7 @@ Se rendre dans la section "Database" et récupérer "rootpassword"puis accéder 
 
 ## Erreurs PHP 
 
-Lors du déploiement en production, il est important de déactiver les erreurs PHP.
+Lors du déploiement en production, il est important de déasctiver les erreurs PHP.
 
 
 

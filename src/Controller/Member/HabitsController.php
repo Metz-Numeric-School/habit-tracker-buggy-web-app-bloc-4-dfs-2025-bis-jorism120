@@ -37,6 +37,7 @@ class HabitsController extends AbstractController
      */
     public function new()
     {
+        UserGuard::check();
         $errors = [];
 
         if (!empty($_POST['habit'])) {
@@ -68,13 +69,14 @@ class HabitsController extends AbstractController
      */
     public function toggle()
     {
-
         if (!empty($_POST['habit_id'])) {
             $habitId = (int)$_POST['habit_id'];
             $this->habitLogRepository->toggleToday($habitId);
+        }else{
+            header('Location: /dashboard');
         }
 
-        header('Location: /dashboard');
+
         exit;
     }
 }

@@ -29,6 +29,16 @@ Mot de passe:
 ### Mot de passe de la base de données dans le fichier .env à modifier en cas de nouveau deploiement :
 - 964f794ca374fcb7
 
+## Utilisateurs de test
+
+Admin:
+- Mail: mail@mail.fr
+- Mot de passe : azerty
+
+Utilisateur: 
+- Mail: jeanne@mail.fr
+- Mot de passe : azerty
+
 
 ## Présentation du projet
 

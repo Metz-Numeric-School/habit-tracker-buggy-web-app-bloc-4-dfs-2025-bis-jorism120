@@ -2,6 +2,8 @@
 
 Suivi des modifications de l'application MyHabitTracker.
 
+
+
 ## [1.0.16] - 2025-10-01 14h29
 ### Corrigé 
 - Liste des habitudes d'un utilisateur :Érreur serveur en cas de suppression du cookie de session 

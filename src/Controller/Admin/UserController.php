@@ -27,6 +27,7 @@ class UserController extends AbstractController
 
     public function new()
     {
+        AdminGuard::check();
         $errors = [];
         $newUser = [];
         $passwordTmp = "";

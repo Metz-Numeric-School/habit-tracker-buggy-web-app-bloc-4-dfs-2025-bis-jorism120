@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
+use App\Guard\AdminGuard;
 use App\Repository\UserRepository;
 use App\Repository\HabitRepository;
 use App\Repository\HabitLogRepository;
@@ -21,6 +22,7 @@ class DashboardController extends AbstractController
 
     public function index()
     {
+        AdminGuard::check();
         $users = $this->userRepository->findAll();
         $totalUsers = count($users);
         $habits = $this->habitRepository->findAll();
