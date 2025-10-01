@@ -93,5 +93,16 @@ Se rendre sur l'interface d'administration et s'identifier : https://172.17.4.19
 - Se rendre dans la catégorie "website" puis sur le bouton "add site".
 - Depuis la fenêtre modale, renseigner le nom de domaine, ajouter une description du projet. 
 - Dans Website Path, selectionner le point d'entrer de l'application. Dans le cas présent, il s'agit de "/public".
+- Se rendre dans la section "URL Rewite" de la configuration du site et indiquer "mvc".
+
+## Création de la base de données à partir de Phpmyadmin intégré à aapanel
+
+Se rendre dans la section "Database" et récupérer "rootpassword"puis accéder à Phpmyadmin via le bouton prévu à cet effet.
+
+- Après s'être identifié, créer une nouvelle base de donnée "habit_tracker".
+- Après la création, se rendre dans "importer" et importer "database.sql" présent dans le projet
+- Une fois la base de donnée correctement créée, il est possible d'ajouter des données de tests en injectant dans la console SQL, le contenu du fichier "demo_data.sqm".
+
+
 
 

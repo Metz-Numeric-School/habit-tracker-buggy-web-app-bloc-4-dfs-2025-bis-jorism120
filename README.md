@@ -1,6 +1,36 @@
 # My Habits Tracker (A Buggy Web Application)
 
-# Présentation du projet
+## Identifiants de connexions: 
+
+### AaPanel 
+
+Adresse du panel de gestion/supervision:
+- https://172.17.4.19:40130/0061dbb1
+Identifiant:
+- f1anqlqz
+Mot de passe:
+- 0ed1272f
+
+### VPS 
+Identifiant:
+- root@172.17.4.19
+Mot de passe:
+- G9a2Fz5f
+
+### Base de données
+
+PhpMyAdmin :
+
+Identifiant:
+- root
+Mot de passe:
+- 964f794ca374fcb7
+
+### Mot de passe de la base de données dans le fichier .env à modifier :
+- 964f794ca374fcb7
+
+
+## Présentation du projet
 
 MyHabitTracker est une application web conçu sur une architecture MVC et qui s'inspire de l'arborsence et du fonctionnement du framework Symfony.
 
