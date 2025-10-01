@@ -63,13 +63,10 @@ class HabitRepository extends AbstractRepository
         $name = htmlspecialchars($data['name']);   
         $description = htmlspecialchars($data['description']);
         $pdo = $this->getConnection();
-
         // Requête construite par concaténation (vulnérable)
-        $sql = "INSERT INTO habits (user_id, name, description, created_at) VALUES (':user_id',':name',':description','NOW()');";
-
+        $sql = "INSERT INTO habits (user_id, name, description) VALUES ('?','?','?');";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['user_id' => $userId],['name' => $name],['description' => $description]);
-
+        $stmt->execute([$userId, $name,$description]);
         return $this->getConnection()->lastInsertId();
     }
 
