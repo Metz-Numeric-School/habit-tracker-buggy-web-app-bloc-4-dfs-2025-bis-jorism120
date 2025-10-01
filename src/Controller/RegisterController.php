@@ -54,6 +54,7 @@ class RegisterController extends AbstractController
                 $newUser['email'] = htmlspecialchars($user['email']);
                 $passwordTmp = htmlspecialchars($user['password']);
                 $newUser['password'] = password_hash($passwordTmp, PASSWORD_DEFAULT);
+                $newUser['isadmin'] =   $user['isadmin'];
 
                 // On persite les informations en BDD
                 $id = $this->userRepository->insert($newUser);

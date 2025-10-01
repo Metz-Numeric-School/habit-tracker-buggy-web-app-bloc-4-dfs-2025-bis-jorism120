@@ -2,6 +2,9 @@
 
 Suivi des modifications de l'application MyHabitTracker.
 
+## [1.0.11] - 2025-10-01 13h33
+### Corrigé 
+- Problème de transmission d'une donnée lors de l'inscription
 
 ## [1.0.10] - 2025-10-01 13h27
 ### Corrigé 
