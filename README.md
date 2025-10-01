@@ -1,4 +1,4 @@
-# My Habits Tracker (A Buggy Web Application)
+# My Habits Tracker (A Buggy Web Application) dépot de Joris MICHEL
 
 ## Identifiants de connexion: 
 

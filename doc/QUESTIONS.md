@@ -2,7 +2,7 @@
 
 Répondez ici aux questions théoriques en détaillant un maxium vos réponses :
 
-## 1) Expliquer la procédure pour réserver un nom de domaine chez OVH avec des captures d'écran (arrêtez-vous au paiement) :
+## 1. Expliquer la procédure pour réserver un nom de domaine chez OVH avec des captures d'écran (arrêtez-vous au paiement) :
 
 A -  Se rendre sur la page prévue a cet effet sur le site officiel de OVH 
 (capture1.png)
