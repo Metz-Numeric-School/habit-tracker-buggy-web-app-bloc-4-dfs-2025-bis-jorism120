@@ -2,6 +2,9 @@
 
 Suivi des modifications de l'application MyHabitTracker.
 
+## [1.0.15] - 2025-10-01 14h03
+### Corrigé 
+- Erreur lors de la création d'un utilisateur par l'administrateur
 
 ## [1.0.14] - 2025-10-01 13h54
 ### Corrigé 
