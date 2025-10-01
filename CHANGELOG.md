@@ -1,6 +1,11 @@
 CHANGELOG :
 
 
+## [1.0.6] - 2025-10-01 11h43
+### Corrigé
+- Nottoyage des saisies utilisateur dans le formulaire d'ajout d'une habitude
+- Protection contre les injections SQL
+
 ## [1.0.5] - 2025-10-01 11h33
 ### Corrigé
 - Nottoyage des saisies utilisateur dans le formulaire d'inscription

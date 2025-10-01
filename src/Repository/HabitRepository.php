@@ -39,19 +39,20 @@ class HabitRepository extends AbstractRepository
 
     public function insert(array $data = array())
     {
-        $name = $data['name'];   
-        $description = $data['description'];
+        $userId = htmlspecialchars($data['user_id']);
+        $name = htmlspecialchars($data['name']);   
+        $description = htmlspecialchars($data['description']);
+        $pdo = $this->getConnection();
 
         // Requête construite par concaténation (vulnérable)
-        $sql = "INSERT INTO habits (user_id, name, description, created_at) VALUES (" 
-            . $data['user_id'] . ", '" 
-            . $name . "', '" 
-            . $description . "', NOW())";
+        $sql = "INSERT INTO habits (user_id, name, description, created_at) VALUES (':user_id',':name',':description','NOW()');";
 
-        $query = $this->getConnection()->query($sql);
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['user_id' => $userId],['name' => $name],['description' => $description]);
 
         return $this->getConnection()->lastInsertId();
     }
+
 
     /**
      * Calcule le nombre de jours consécutifs où l'utilisateur a complété au moins une habitude
