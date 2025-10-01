@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Guard\AdminGuard;
 use App\Repository\UserRepository;
 use Mns\Buggy\Core\AbstractController;
 
@@ -22,6 +23,8 @@ class RegisterController extends AbstractController
      */
     public function index()
     {
+        AdminGuard::check();
+
         $errors = [];
         $newUser = [];
         $passwordTmp = "";

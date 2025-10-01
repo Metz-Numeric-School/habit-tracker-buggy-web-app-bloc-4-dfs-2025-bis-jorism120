@@ -1,4 +1,10 @@
-CHANGELOG :
+#CHANGELOG 
+
+Suivi des modifications de l'application MyHabitTracker.
+
+## [1.0.8] - 2025-10-01 12h18
+### Corrigé 
+- Protection de la page de gestion des utilisateurs.
 
 ## [1.0.7] - 2025-10-01 11h57
 ### Ajouté 
