@@ -1,5 +1,11 @@
 CHANGELOG :
 
+
+## [1.0.4] - 2025-10-01 11h27
+
+### Corrigé
+- Verification du mot de passe de l'utilisateur lors de son authentification
+
 ## [1.0.3] - 2025-10-01 11h11
 ### Ajouté
 - Procédure de déploiement 
