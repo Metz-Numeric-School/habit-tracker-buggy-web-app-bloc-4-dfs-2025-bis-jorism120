@@ -5,6 +5,10 @@ use App\Entity\HabitLog;
 use App\Utils\EntityMapper;
 use Mns\Buggy\Core\AbstractRepository;
 
+
+/**
+ * Gère la persistance des données des logs
+ */
 class HabitLogRepository extends AbstractRepository
 {
     public function find($id)

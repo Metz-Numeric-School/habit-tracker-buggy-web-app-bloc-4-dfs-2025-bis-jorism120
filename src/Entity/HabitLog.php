@@ -3,6 +3,9 @@ namespace App\Entity;
 
 use App\Entity\AbstractEntity;
 
+/**
+ * Représente un log d'habitude
+ */
 class HabitLog extends AbstractEntity
 {
     private $habit_id;

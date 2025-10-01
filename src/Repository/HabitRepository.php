@@ -5,20 +5,34 @@ use App\Entity\Habit;
 use App\Utils\EntityMapper;
 use Mns\Buggy\Core\AbstractRepository;
 
+/**
+ * Gère la persistance des données des habitudes
+ */
 class HabitRepository extends AbstractRepository
 {
+    /**
+     * Récupère l'ensemble des habitudes.
+     */
     public function findAll()
     {
         $habits = $this->getConnection()->query("SELECT * FROM habits");
         return EntityMapper::mapCollection(Habit::class, $habits->fetchAll());
     }
 
+    /**
+     * Récupère une habitude spécifique
+     * @param int $id ID de l'habitude
+     */
     public function find(int $id)
     {
         $habit = $this->getConnection()->query("SELECT * FROM habits WHERE id = $id");
         return EntityMapper::map(Habit::class, $habit->fetch());
     }
 
+    /**
+     * Récupère l'ensemble des habitudes d'un utilisateur
+     * @param int $id ID de l'utilisateur
+     */
     public function findByUser(int $userId)
     {
         $sql = "SELECT * FROM habits WHERE user_id = $userId";
@@ -28,6 +42,8 @@ class HabitRepository extends AbstractRepository
 
      /**
      * Compte le nombre d'habitudes actives pour un utilisateur
+     * @param int $id ID de l'utilisateur
+     * 
      */
     public function countByUser(int $userId): int
     {
@@ -37,6 +53,10 @@ class HabitRepository extends AbstractRepository
         return (int)($row['total'] ?? 0);
     }
 
+    /**
+     * Créer une nouvelle habitude 
+     * @param array $data Ensemble des données consituant l'habitude a créer.
+     */
     public function insert(array $data = array())
     {
         $userId = htmlspecialchars($data['user_id']);
@@ -56,6 +76,7 @@ class HabitRepository extends AbstractRepository
 
     /**
      * Calcule le nombre de jours consécutifs où l'utilisateur a complété au moins une habitude
+     * @param int $userId ID de l'utilisateur.
      */
     public function getStreak(int $userId): int
     {

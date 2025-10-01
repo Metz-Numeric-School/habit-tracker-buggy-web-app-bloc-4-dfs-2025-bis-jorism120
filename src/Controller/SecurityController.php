@@ -4,6 +4,9 @@ namespace App\Controller;
 use App\Repository\UserRepository;
 use Mns\Buggy\Core\AbstractController;
 
+/**
+ * Gère la sécurité de l'application.
+ */
 class SecurityController extends AbstractController
 {
 
@@ -14,6 +17,9 @@ class SecurityController extends AbstractController
         $this->userRepository = new UserRepository();
     }
 
+    /**
+     * Récupère les information de connexion de l'utilisateur
+     */
     public function login()
     {
 
@@ -61,6 +67,9 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    /**
+     * Permet la déconnexion.
+     */
     public function logout()
     {
         unset($_SESSION['user']);

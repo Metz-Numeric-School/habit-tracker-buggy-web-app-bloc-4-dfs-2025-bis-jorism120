@@ -3,6 +3,9 @@ namespace App\Entity;
 
 use App\Entity\AbstractEntity;
 
+/**
+ * Représente un utilisateur
+ */
 class User extends AbstractEntity 
 {
     private $firstname;

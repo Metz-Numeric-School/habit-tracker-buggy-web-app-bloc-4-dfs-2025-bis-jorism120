@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Entity\AbstractEntity;
 use App\Repository\HabitLogRepository;
 
+/**
+ * Représente une habitude
+ */
 class Habit extends AbstractEntity
 {
     private $user_id;

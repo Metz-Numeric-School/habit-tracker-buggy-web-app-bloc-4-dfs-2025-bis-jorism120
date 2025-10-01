@@ -1,5 +1,8 @@
 CHANGELOG :
 
+## [1.0.7] - 2025-10-01 11h57
+### Ajouté 
+- Documentation du code source
 
 ## [1.0.6] - 2025-10-01 11h43
 ### Corrigé

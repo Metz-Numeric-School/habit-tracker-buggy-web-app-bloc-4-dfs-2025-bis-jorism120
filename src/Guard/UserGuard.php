@@ -3,6 +3,9 @@ namespace App\Guard;
 
 class UserGuard 
 {
+    /**
+     * Vérifie que l'utilisateur est de type user
+     */
     public static function check()
     {
         if(empty($_SESSION['user']))

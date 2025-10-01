@@ -4,6 +4,9 @@ namespace App\Controller;
 use App\Repository\UserRepository;
 use Mns\Buggy\Core\AbstractController;
 
+/**
+ * Gère les inscriptions
+ */
 class RegisterController extends AbstractController
 {
 
@@ -14,6 +17,9 @@ class RegisterController extends AbstractController
         $this->userRepository = new UserRepository();
     }
 
+    /**
+     * Vérifie et transmet les données saisies dans le formulaire d'inscription.
+     */
     public function index()
     {
         $errors = [];

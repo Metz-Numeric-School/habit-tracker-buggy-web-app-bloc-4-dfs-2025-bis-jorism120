@@ -23,10 +23,8 @@ class DashboardController extends AbstractController
     {
         $users = $this->userRepository->findAll();
         $totalUsers = count($users);
-
         $habits = $this->habitRepository->findAll();
         $totalHabits = count($habits);
-
         // Nombre total d'habitudes complétées aujourd'hui (anonyme)
         $completedToday = $this->habitLogRepository->countAllCompletedToday();
 
