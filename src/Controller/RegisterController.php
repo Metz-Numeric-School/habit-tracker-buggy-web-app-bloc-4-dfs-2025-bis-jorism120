@@ -17,10 +17,12 @@ class RegisterController extends AbstractController
     public function index()
     {
         $errors = [];
-
+        $newUser = [];
+        $passwordTmp = "";
         if(!empty($_POST['user'])) {
 
             $user = $_POST['user'];
+
             
             if(empty($user['lastname']))
                 $errors['lastname'] = 'Le Nom est obligatoire';
@@ -39,8 +41,14 @@ class RegisterController extends AbstractController
                 // Par défaut l'utilisateur n'est pas admin
                 $user['isadmin'] = 0;
 
+                $newUser['lastname'] = htmlspecialchars($user['lastname']);
+                $newUser['firstname'] = htmlspecialchars($user['lastname']);
+                $newUser['email'] = htmlspecialchars($user['email']);
+                $passwordTmp = htmlspecialchars($user['password']);
+                $newUser['password'] = password_hash($passwordTmp, PASSWORD_DEFAULT);
+
                 // On persite les informations en BDD
-                $id = $this->userRepository->insert($user);
+                $id = $this->userRepository->insert($newUser);
 
                 // On authentifie l'utilsateur directement
                 $_SESSION['user'] = [

@@ -54,7 +54,7 @@ class UserController extends AbstractController
                 $passwordTmp = htmlspecialchars($user['password']);
                 $newUser['password'] = password_hash($passwordTmp, PASSWORD_DEFAULT);
 
-                $id = $this->userRepository->insert($user);
+                $id = $this->userRepository->insert($newUser);
                 header('Location: /admin/user');
                 exit;
             }
